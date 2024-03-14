@@ -1,0 +1,8 @@
+#!/bin/sh -xe
+e=$(echo $1 | cut -d. -f1)
+CC=gcc
+CFLAGS="-Wall -Wextra -Wpedantic"
+LIBS="-lraylib -lGL -lpthread -ldl -lrt -lX11"
+DEBUG="-ggdb"
+clear && $CC $CFLAGS $1 -o $e $LIBS $DEBUG && ./$e
+#clear && $CC $CFLAGS main.c menu.c -o main $LIBS $DEBUG && ./main
